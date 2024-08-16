@@ -20,15 +20,9 @@ namespace HslCommunicationDemo.Algorithms
         {
             label1.Text = "我们都知道线程池是为了高效的利用线程资源而设计的，此处的连接池也是为了高效的使用连接对象设计的，这个连接对象可以是任何的东西，西门子PLC，Modbus Tcp，Redis，数据库，自定义的连接等等。"+
                 "主需要服务器端支持多连接即可，比如三菱的端口就不支持多连接的功能，所以不能使用连接池。本节目的代码是演示了一个西门子连接池，根据案例可以扩充其他的连接池。";
-
-
-
-
-
             siemensConnect = new HslCommunication.Algorithms.ConnectPool.ConnectPool<SiemensConnector>( ( ) => { return new SiemensConnector( "192.168.1.195" ); } );
             siemensConnect.MaxConnector = 10;         // 同时存在的最大连接数
             siemensConnect.ConectionExpireTime = 30;  // 连接多久不用就自动回收释放，单位秒
-            
         }
 
 
